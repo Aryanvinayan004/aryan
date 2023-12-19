@@ -1,0 +1,19 @@
+from twilio.rest import Client
+
+# Twilio account information
+account_sid = 'ACdc476221fbb18bcf50c1d7a91ede91fa'
+auth_token = '6e8c49ff014a30e38d3d5ea38c243e09'
+twilio_phone_number = '+19108176090'
+recipient_phone_number = '+91 9047208391'  # Replace with the recipient's phone number
+
+# Create a Twilio client
+client = Client(account_sid, auth_token)
+
+# Send an SMS
+message = client.messages.create(
+    body='BANK IN DANGER',
+    from_=twilio_phone_number,
+    to=recipient_phone_number
+)
+
+print(f"Message sent successfully. SID: {message.sid}")
